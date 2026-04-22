@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>КП · Бренд-стратегия</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  .cp {
+    background: #0e0c0a;
+    color: #e8e0d4;
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #1a1410 0%, #0e0c0a 50%, #1c1208 100%);
+    padding: 64px 48px 56px;
+    border-bottom: 1px solid rgba(196,160,100,0.2);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 320px; height: 320px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(196,160,100,0.08) 0%, transparent 70%);
+  }
+  .hero-tag {
+    font-size: 9px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #c4a064;
+    margin-bottom: 20px;
+  }
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 52px;
+    font-weight: 300;
+    line-height: 1.1;
+    color: #f5ede0;
+    margin-bottom: 8px;
+  }
+  .hero-title em { font-style: italic; color: #c4a064; }
+  .hero-sub {
+    font-size: 13px;
+    color: rgba(232,224,212,0.55);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 36px;
+  }
+  .hero-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-style: italic;
+    color: rgba(232,224,212,0.7);
+    max-width: 520px;
+    border-left: 2px solid #c4a064;
+    padding-left: 20px;
+  }
+
+  /* VALUE SECTION */
+  .value-section {
+    padding: 56px 48px;
+    border-bottom: 1px solid rgba(196,160,100,0.15);
+    background: linear-gradient(180deg, #111009 0%, #0e0c0a 100%);
+  }
+  .value-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    font-weight: 300;
+    color: #f5ede0;
+    line-height: 1.25;
+    margin-bottom: 10px;
+    max-width: 680px;
+  }
+  .value-headline em { font-style: italic; color: #c4a064; }
+  .value-lead {
+    font-size: 14px;
+    color: rgba(232,224,212,0.6);
+    line-height: 1.85;
+    max-width: 640px;
+    margin-bottom: 44px;
+  }
+  .value-lead strong { color: #e8e0d4; font-weight: 500; }
+
+  .bricks {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1px;
+    background: rgba(196,160,100,0.12);
+    margin-bottom: 40px;
+  }
+  .brick {
+    background: #0e0c0a;
+    padding: 22px 18px;
+    text-align: center;
+  }
+  .brick-icon { font-size: 22px; margin-bottom: 10px; display: block; }
+  .brick-title { font-size: 11px; font-weight: 500; color: #e8e0d4; margin-bottom: 5px; line-height: 1.3; }
+  .brick-desc { font-size: 10px; color: rgba(232,224,212,0.42); line-height: 1.5; }
+  .brick-num { font-family: 'Cormorant Garamond', serif; font-size: 11px; color: rgba(196,160,100,0.4); letter-spacing: 1px; margin-bottom: 8px; }
+
+  .value-quote {
+    border: 1px solid rgba(196,160,100,0.2);
+    background: rgba(196,160,100,0.04);
+    padding: 28px 36px;
+    position: relative;
+  }
+  .value-quote::before {
+    content: '\201C';
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 80px;
+    color: rgba(196,160,100,0.15);
+    position: absolute;
+    top: -10px; left: 24px;
+    line-height: 1;
+  }
+  .vq-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-style: italic;
+    color: rgba(232,224,212,0.8);
+    line-height: 1.6;
+    padding-left: 32px;
+  }
+  .vq-sub {
+    font-size: 11px;
+    color: rgba(196,160,100,0.6);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-top: 14px;
+    padding-left: 32px;
+  }
+
+  /* INTRO */
+  .intro {
+    padding: 48px 48px 40px;
+    border-bottom: 1px solid rgba(196,160,100,0.1);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+  .intro-text p { font-size: 14px; color: rgba(232,224,212,0.75); line-height: 1.8; margin-bottom: 14px; }
+  .intro-stats { display: flex; flex-direction: column; gap: 16px; justify-content: center; }
+  .stat {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 20px;
+    border: 1px solid rgba(196,160,100,0.2);
+    background: rgba(196,160,100,0.04);
+  }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 300;
+    color: #c4a064;
+    min-width: 56px;
+    line-height: 1;
+  }
+  .stat-desc { font-size: 11.5px; color: rgba(232,224,212,0.65); line-height: 1.4; }
+
+  .section { padding: 40px 48px; border-bottom: 1px solid rgba(196,160,100,0.1); }
+  .section-head { display: flex; align-items: baseline; gap: 16px; margin-bottom: 28px; }
+  .section-num { font-family: 'Cormorant Garamond', serif; font-size: 11px; color: #c4a064; letter-spacing: 2px; }
+  .section-title { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 400; color: #f5ede0; }
+
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .item { padding: 18px 20px; border: 1px solid rgba(196,160,100,0.15); background: rgba(255,255,255,0.02); }
+  .item-title { font-size: 12px; font-weight: 500; color: #e8e0d4; margin-bottom: 5px; }
+  .item-desc { font-size: 11px; color: rgba(232,224,212,0.5); line-height: 1.55; }
+  .item-accent { border-left: 2px solid #c4a064; }
+
+  /* PROCESS */
+  .process { display: flex; gap: 0; }
+  .step { flex: 1; padding: 20px 18px; border: 1px solid rgba(196,160,100,0.15); border-right: none; }
+  .step:last-child { border-right: 1px solid rgba(196,160,100,0.15); }
+  .step-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    font-weight: 300;
+    color: rgba(196,160,100,0.2);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .step-title { font-size: 11px; font-weight: 500; color: #c4a064; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 6px; }
+  .step-desc { font-size: 10.5px; color: rgba(232,224,212,0.55); line-height: 1.5; }
+  .step-time { margin-top: 10px; font-size: 9px; letter-spacing: 1px; text-transform: uppercase; color: #c4a064; opacity: 0.7; }
+
+  /* PRICING */
+  .pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .pkg { border: 1px solid rgba(196,160,100,0.2); background: rgba(255,255,255,0.02); overflow: hidden; }
+  .pkg.featured { border: 1px solid rgba(196,160,100,0.5); background: linear-gradient(160deg, #1a1410 0%, #110e08 100%); }
+  .pkg-head { padding: 24px 28px 20px; border-bottom: 1px solid rgba(196,160,100,0.12); }
+  .pkg.featured .pkg-head { border-bottom-color: rgba(196,160,100,0.25); }
+  .pkg-badge {
+    display: inline-block;
+    font-size: 8px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #0e0c0a;
+    background: #c4a064;
+    padding: 3px 10px;
+    margin-bottom: 14px;
+  }
+  .pkg-badge-muted {
+    display: inline-block;
+    font-size: 8px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(196,160,100,0.7);
+    border: 1px solid rgba(196,160,100,0.3);
+    padding: 3px 10px;
+    margin-bottom: 14px;
+  }
+  .pkg-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: #f5ede0;
+    margin-bottom: 6px;
+    line-height: 1.2;
+  }
+  .pkg-tagline { font-size: 11px; color: rgba(232,224,212,0.45); line-height: 1.5; }
+  .pkg-price-row {
+    padding: 20px 28px;
+    border-bottom: 1px solid rgba(196,160,100,0.1);
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .pkg-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 300;
+    color: #c4a064;
+    line-height: 1;
+  }
+  .pkg-currency {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    color: rgba(196,160,100,0.6);
+  }
+  .pkg-price-note { font-size: 10px; color: rgba(232,224,212,0.35); margin-left: 4px; }
+  .pkg-price-old {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    color: rgba(232,224,212,0.25);
+    text-decoration: line-through;
+    margin-left: 8px;
+    align-self: center;
+  }
+  .pkg-save {
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #c4a064;
+    background: rgba(196,160,100,0.1);
+    border: 1px solid rgba(196,160,100,0.25);
+    padding: 3px 8px;
+    align-self: center;
+  }
+  .pkg-body { padding: 20px 28px; }
+  .pkg-section-title {
+    font-size: 8.5px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: rgba(196,160,100,0.6);
+    margin-bottom: 12px;
+    margin-top: 16px;
+  }
+  .pkg-section-title:first-child { margin-top: 0; }
+  .pkg-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+  .pkg-list li {
+    font-size: 12px;
+    color: rgba(232,224,212,0.7);
+    padding-left: 16px;
+    position: relative;
+    line-height: 1.45;
+  }
+  .pkg-list li::before { content: '—'; position: absolute; left: 0; color: #c4a064; font-size: 10px; }
+  .pkg-list li strong { color: #e8e0d4; font-weight: 500; }
+  .pkg-sessions { display: flex; gap: 8px; margin-top: 16px; flex-wrap: wrap; }
+  .session-tag {
+    font-size: 10px;
+    padding: 5px 12px;
+    border: 1px solid rgba(196,160,100,0.25);
+    color: rgba(232,224,212,0.6);
+    background: rgba(196,160,100,0.05);
+  }
+  .session-tag strong { color: #c4a064; font-weight: 500; }
+  .pkg-extra {
+    margin-top: 16px;
+    padding: 14px 16px;
+    background: rgba(196,160,100,0.07);
+    border-left: 2px solid #c4a064;
+    font-size: 11.5px;
+    color: rgba(232,224,212,0.6);
+    line-height: 1.6;
+  }
+  .pkg-extra strong { color: #e8e0d4; font-weight: 500; }
+
+  /* BONUS BANNER */
+  .bonus-banner {
+    margin: 0 48px 0;
+    border: 1px solid rgba(196,160,100,0.3);
+    background: linear-gradient(135deg, rgba(196,160,100,0.06) 0%, rgba(196,160,100,0.02) 100%);
+    padding: 20px 28px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: -1px;
+  }
+  .bonus-icon {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    color: #c4a064;
+    opacity: 0.6;
+    flex-shrink: 0;
+  }
+  .bonus-text { font-size: 12px; color: rgba(232,224,212,0.65); line-height: 1.6; }
+  .bonus-text strong { color: #e8e0d4; font-weight: 500; }
+
+  .divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(196,160,100,0.3), transparent); margin: 0 48px; }
+  .footer {
+    padding: 32px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(196,160,100,0.15);
+  }
+  .footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: #c4a064; font-style: italic; }
+  .footer-note { font-size: 10px; color: rgba(232,224,212,0.35); text-align: right; line-height: 1.6; }
+</style>
+
+<div class="cp">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-tag">Коммерческое предложение · Brand Strategy</div>
+    <div class="hero-title">Бренд-стратегия<br>через <em>архетипы</em></div>
+    <div class="hero-sub">Personal Brand · Positioning · Identity</div>
+    <div class="hero-tagline">Стратегия, которая продаёт — не продавая.<br>Идентичность, которая притягивает — не убеждая.</div>
+  </div>
+
+  <!-- VALUE SECTION -->
+  <div class="value-section">
+    <div class="value-headline">Работающий бизнес,<br>который обеспечит прибыль <em>в долгосроке</em></div>
+    <div class="value-lead">
+      Большинство экспертов создают контент, ведут соцсети и даже продают — но не имеют <strong>системы</strong>. Без неё каждый месяц начинается с нуля: новые усилия, непредсказуемый результат, ощущение, что что-то идёт не так.<br><br>
+      Устойчивый рост возможен только когда <strong>стратегия собрана по кирпичикам</strong> — где каждый элемент опирается на твою миссию, экспертизу и внутренние аспекты личности.
+    </div>
+
+    <div class="bricks">
+      <div class="brick">
+        <div class="brick-num">01</div>
+        <span class="brick-icon">◻</span>
+        <div class="brick-title">Продукты</div>
+        <div class="brick-desc">Линейка, воронки, лид-магниты — выстроенные в систему</div>
+      </div>
+      <div class="brick">
+        <div class="brick-num">02</div>
+        <span class="brick-icon">◻</span>
+        <div class="brick-title">Контент-стратегия</div>
+        <div class="brick-desc">Темы, форматы, каналы — всё работает на одну цель</div>
+      </div>
+      <div class="brick">
+        <div class="brick-num">03</div>
+        <span class="brick-icon">◻</span>
+        <div class="brick-title">Позиционирование</div>
+        <div class="brick-desc">Уникальное ценностное предложение, которое отличает тебя на рынке</div>
+      </div>
+      <div class="brick">
+        <div class="brick-num">04</div>
+        <span class="brick-icon">◻</span>
+        <div class="brick-title">План продвижения</div>
+        <div class="brick-desc">Инструменты, ключевые шаги — скоординированы и измеримы</div>
+      </div>
+      <div class="brick">
+        <div class="brick-num">05</div>
+        <span class="brick-icon">◻</span>
+        <div class="brick-title">Миссия и личность</div>
+        <div class="brick-desc">Фундамент — твои внутренние аспекты, ценности и архетип</div>
+      </div>
+    </div>
+
+
+  </div>
+
+  <!-- INTRO -->
+  <div class="intro">
+    <div class="intro-text">
+      <p>Это не просто стратегия. Это полная архитектура твоего личного бренда — от ядра и миссии до продуктовых гипотез, инструментов продвижения и ключевых принципов.</p>
+      <p>В основе — архетипическая модель: инструмент, который объясняет, почему одни бренды вызывают мгновенное доверие, а другие работают на продажи годами без результата.</p>
+      <p>Ты получишь не шаблон, а индивидуально собранную систему, которая работает именно на тебя.</p>
+    </div>
+    <div class="intro-stats">
+      <div class="stat">
+        <div class="stat-num">1</div>
+        <div class="stat-desc">глубинная сессия распаковки — 2,5–3 часа, контекст и экспертность</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">2</div>
+        <div class="stat-desc">экспертные консультации по 2 часа — продукты, продвижение, гипотезы</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">5+</div>
+        <div class="stat-desc">часов живой работы вместе над твоей стратегией</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DELIVERABLES -->
+  <div class="section">
+    <div class="section-head">
+      <span class="section-num">01</span>
+      <span class="section-title">Что мы создадим вместе</span>
+    </div>
+    <div class="grid-2">
+      <div class="item item-accent">
+        <div class="item-title">◈ &nbsp;Сбор контекста и распаковка</div>
+        <div class="item-desc">Выявляем твою экспертизу, личные характеристики, ценности и точки дифференциации. Основа, без которой стратегия — пустой шаблон.</div>
+      </div>
+      <div class="item item-accent">
+        <div class="item-title">◈ &nbsp;Продуктовые гипотезы</div>
+        <div class="item-desc">Формируем идеи продуктов, форматов, структуры линейки. Что можно создать, как упаковать, как продать.</div>
+      </div>
+      <div class="item item-accent">
+        <div class="item-title">◈ &nbsp;Варианты инструментов продвижения</div>
+        <div class="item-desc">Подбираем каналы и инструменты, которые подходят именно тебе — под твой ритм, ресурсы и стиль.</div>
+      </div>
+      <div class="item item-accent">
+        <div class="item-title">◈ &nbsp;Ключевые принципы и шаги</div>
+        <div class="item-desc">Конкретный вектор движения: что делать первым, что важно не пропустить, на чём сфокусироваться.</div>
+      </div>
+      <div class="item item-accent">
+        <div class="item-title">◈ &nbsp;Архетипическая модель бренда</div>
+        <div class="item-desc">Раскрытие миссии через атрибуты, символы, смыслы. Визуальный и голосовой код, который работает на узнавание.</div>
+      </div>
+      <div class="item item-accent">
+        <div class="item-title">◈ &nbsp;Позиционирование и ядро бренда</div>
+        <div class="item-desc">Миссия, ценности, УЦП. То, чем ты отличаешься — и почему это важно именно твоей аудитории.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROCESS -->
+  <div class="section">
+    <div class="section-head">
+      <span class="section-num">02</span>
+      <span class="section-title">Как проходит работа</span>
+    </div>
+    <div class="process">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-title">Распаковка</div>
+        <div class="step-desc">Глубинная сессия: собираем контекст, раскрываем экспертность и личные характеристики.</div>
+        <div class="step-time">1 сессия · 2,5–3 часа</div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-title">Стратегия</div>
+        <div class="step-desc">Разрабатываем продукты, инструменты продвижения, принципы, шаги, продуктовые гипотезы.</div>
+        <div class="step-time">2 консультации · 2 часа</div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-title">Документ</div>
+        <div class="step-desc">Контент-план, ТЗ на оформление соцсетей, примеры постов — оформленные в полноценный стратегический документ.</div>
+        <div class="step-time">По желанию · доп. пакет</div>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-title">Презентация</div>
+        <div class="step-desc">Живая презентация документа, ответы на вопросы, финальная сессия Q&A.</div>
+        <div class="step-time">2 часа · включено в пакет</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRICING -->
+  <div class="section">
+    <div class="section-head">
+      <span class="section-num">03</span>
+      <span class="section-title">Пакеты и стоимость</span>
+    </div>
+    <div class="pricing-grid">
+
+      <!-- СТАРТ -->
+      <div class="pkg">
+        <div class="pkg-head">
+          <div class="pkg-badge-muted">Старт</div>
+          <div class="pkg-name">Стратегия<br>+ сессии</div>
+          <div class="pkg-tagline">Всё, что требуется для запуска полноценного бизнеса: продукты и инструменты продвижения, позиционирование под разные целевые сегменты, формулировка «звенящего для ЦА» УЦП. Всё опирается на твои таланты, миссию, существующие озёра аудитории и активы</div>
+        </div>
+        <div class="pkg-price-row">
+          <div class="pkg-price">750</div>
+          <div class="pkg-currency">€</div>
+          <div class="pkg-price-note">единоразово</div>
+        </div>
+        <div class="pkg-body">
+          <div class="pkg-section-title">Сессии</div>
+          <ul class="pkg-list">
+            <li><strong>Тестирование по Архетипам</strong> — до начала работы, онлайн-формат</li>
+            <li><strong>1 сессия распаковки</strong> — 2,5–3 часа: контекст, экспертность, личные характеристики</li>
+            <li><strong>2 экспертные консультации</strong> по 2 часа каждая</li>
+          </ul>
+          <div class="pkg-section-title">Результаты</div>
+          <ul class="pkg-list">
+            <li>Продуктовые гипотезы и идеи линейки</li>
+            <li>Варианты инструментов продвижения</li>
+            <li>Ключевые принципы и шаги</li>
+            <li>Позиционирование и ядро бренда</li>
+            <li>Архетипическая модель</li>
+          </ul>
+          <div class="pkg-sessions">
+            <span class="session-tag"><strong>1</strong> сессия распаковки × 2,5–3ч</span>
+            <span class="session-tag"><strong>2</strong> консультации × 2ч</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ПОЛНЫЙ -->
+      <div class="pkg featured">
+        <div class="pkg-head">
+          <div class="pkg-badge">Полный пакет</div>
+          <div class="pkg-name">Стратегия<br>+ документ + презентация</div>
+          <div class="pkg-tagline">Полноценная стратегия плюс оформленный документ с контент-планом, ТЗ и примерами постов</div>
+        </div>
+        <div class="pkg-price-row">
+          <div class="pkg-price">1300</div>
+          <div class="pkg-currency">€</div>
+          <span class="pkg-save">экономия 200€</span>
+          <div class="pkg-price-note" style="width:100%; margin-left:0; margin-top:4px;">при пакетном заказе вместо 1500€</div>
+        </div>
+        <div class="pkg-body">
+          <div class="pkg-section-title">Всё из пакета «Старт»</div>
+          <div style="padding: 12px 16px; border: 1px solid rgba(196,160,100,0.25); background: rgba(196,160,100,0.06); margin-bottom: 16px; font-size: 11px; color: rgba(232,224,212,0.65); line-height: 1.6;">
+            Тестирование по архетипам · Сессия распаковки (2,5–3ч) · 2 экспертные консультации · Продуктовые гипотезы · Инструменты продвижения · Принципы и шаги · Позиционирование · Архетипическая модель
+          </div>
+          <div class="pkg-section-title">Плюс стратегический документ</div>
+          <ul class="pkg-list">
+            <li><strong>Контент-план</strong> — темы, рубрики, форматы</li>
+            <li><strong>ТЗ на оформление соцсетей</strong> — визуальный стиль, структура профиля</li>
+            <li><strong>Примеры постов</strong>, адаптированные под твой архетип и голос</li>
+            <li><strong>2-часовая презентация финального документа</strong> в живом формате с ответами на вопросы и Q&A сессией</li>
+          </ul>
+          <div class="pkg-sessions">
+            <span class="session-tag"><strong>1</strong> сессия распаковки × 2,5–3ч</span>
+            <span class="session-tag"><strong>2</strong> консультации × 2ч</span>
+            <span class="session-tag"><strong>1</strong> презентация × 2ч</span>
+          </div>
+          <div class="pkg-extra">
+            <strong>+750€</strong> к пакету «Старт» — за полноценный стратегический документ с контент-планом, ТЗ, примерами постов и финальной презентацией. <strong>При пакетном заказе — 1300€ вместо 1500€.</strong>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="footer">
+    <div class="footer-brand">Brand Strategy through Archetypes</div>
+    <div class="footer-note">Индивидуальная работа · Конфиденциально<br>Следующий шаг — знакомство и первая сессия</div>
+  </div>
+
+</div>
+</html>
